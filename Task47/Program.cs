@@ -11,34 +11,38 @@ int num2 = Convert.ToInt32(Console.ReadLine());
 
 Double[,] CreateMatrixRndDouble(int m, int n)
 {
-  double[,] array = new double[m, n];
-  var rnd = new Random();
+    double[,] array = new double[m, n];
+    var rnd = new Random();
 
-  for (int i = 0; i < array.GetLength(0); i++)
-  {
-    for (int j = 0; j < array.GetLength(1); j++)
+    for (int i = 0; i < array.GetLength(0); i++)
     {
-      array[i, j] = rnd.Next(-100, 100);
-            
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            array[i, j] = rnd.NextDouble();
+
+        }
     }
-  }
-  return array;
+    return array;
 
 }
- 
+
 void PrintMatrix(double[,] arr)
 {
-  for (int i = 0; i < arr.GetLength(0); i++)
-  {
-    for (int j = 0; j < arr.GetLength(1); j++)
+
+    for (int i = 0; i < arr.GetLength(0); i++)
     {
-      if (j == 0) Console.Write("[");
-      if (j < arr.GetLength(1) - 1) Console.Write(arr[i, j] + ", ");
-      else Console.Write(arr[i, j] + "]");
+        for (int j = 0; j < arr.GetLength(1); j++)
+
+        {
+            if (j == 0) Console.Write("[");
+
+            double alignNumber = Math.Round(arr[i, j], 1);
+            Console.Write(alignNumber + " ");
+        }
+        Console.WriteLine("]");
     }
-    Console.WriteLine();
-  }
 }
+
 
 double[,] matrix = CreateMatrixRndDouble(num1, num2);
 PrintMatrix(matrix);
