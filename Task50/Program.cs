@@ -6,15 +6,16 @@
 // 8 4 2 4
 // 17 -> такого числа в массиве нет
 
-Console.WriteLine("Введите номер строки массива:");
-int pos1 = Convert.ToInt32(Console.ReadLine()) -1;
-Console.WriteLine("Введите номер столбца массива:");
-int pos2 = Convert.ToInt32(Console.ReadLine()) -1;
+Console.WriteLine($"Введите номер строки массива: ");
+int pos1 = Convert.ToInt32(Console.ReadLine()) - 1;
+Console.WriteLine($"Введите номер столбца массива: ");
+int pos2 = Convert.ToInt32(Console.ReadLine()) - 1;
 int n = 3; // строки
 int m = 4; // столбцы
-Console.WriteLine("Заданный массив:");
 Random random = new Random();
 int[,] arr = new int[n, m];
+Console.WriteLine($"Заданный массив: ");
+
 
 int[,] CreateMatrix(int n, int m)
 {
@@ -22,7 +23,7 @@ int[,] CreateMatrix(int n, int m)
     {
         for (int j = 0; j < arr.GetLength(1); j++)
         {
-            arr[i, j] = random.Next(-100, 100);
+            arr[i, j] = random.Next(10, 99);
             Console.Write("{0} ", arr[i, j]);
         }
         Console.WriteLine();
@@ -30,14 +31,12 @@ int[,] CreateMatrix(int n, int m)
     return arr;
 }
 
-void ReturnPosition(int[,] arr)
+void ReturnPosition(int pos1, int pos2)
 {
-    if (pos1 <= 0
-        & pos1 >= arr.GetLength(0) - 1
-        & pos2 <= 0
-        & pos2 >= arr.GetLength(1) - 1)
+    if (pos1 > 0 & pos1 < arr.GetLength(0) - 1
+        & pos2 > 0 & pos2 < (arr).GetLength(1) - 1)
     {
-        Console.WriteLine("Такого числа в массиве нет");
+        Console.WriteLine("Такого числа в массиве нет ");
     }
     else
     {
@@ -48,5 +47,5 @@ void ReturnPosition(int[,] arr)
 
 
 CreateMatrix(n, m);
-ReturnPosition(arr);
+ReturnPosition(pos1, pos2);
 
