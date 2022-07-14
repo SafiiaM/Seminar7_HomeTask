@@ -36,8 +36,8 @@ void PrintMatrix(double[,] arr)
         {
             if (j == 0) Console.Write("[");
 
-            double alignNumber = Math.Round(arr[i, j], 1);
-            Console.Write(alignNumber + " ");
+            double AlignmentNumber = Math.Round(arr[i, j], 1);
+            Console.Write(AlignmentNumber + " ");
         }
         Console.WriteLine("]");
     }
