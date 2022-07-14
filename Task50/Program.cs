@@ -6,50 +6,47 @@
 // 8 4 2 4
 // 17 -> такого числа в массиве нет
 
-// Console.WriteLine("Введите количество строк ");
-// int num1 = Convert.ToInt32(Console.ReadLine());
-// Console.WriteLine("Введите количество столбцов ");
-// int num2 = Convert.ToInt32(Console.ReadLine());
+Console.WriteLine("Введите номер строки массива:");
+int pos1 = Convert.ToInt32(Console.ReadLine()) -1;
+Console.WriteLine("Введите номер столбца массива:");
+int pos2 = Convert.ToInt32(Console.ReadLine()) -1;
+int n = 3; // строки
+int m = 4; // столбцы
+Console.WriteLine("Заданный массив:");
+Random random = new Random();
+int[,] arr = new int[n, m];
 
-// int[,] CreateMatrix(int m, int n)
-// {
-//     int[,] array = new int[m, n];
-//     for (int i = 0; i < array.GetLength(0); i++)
-//     {
-//         for (int j = 0; j < array.GetLength(1); j++)
-//         {
-//             array[i, j] = i + j;
-//         }
-//     }
-//     return array;
-// }
+int[,] CreateMatrix(int n, int m)
+{
+    for (int i = 0; i < arr.GetLength(0); i++)
+    {
+        for (int j = 0; j < arr.GetLength(1); j++)
+        {
+            arr[i, j] = random.Next(-100, 100);
+            Console.Write("{0} ", arr[i, j]);
+        }
+        Console.WriteLine();
+    }
+    return arr;
+}
 
-    Console.Write("Введите строку:");
-            int pos1 = Convert.ToInt32(Console.ReadLine()) - 1;
-            Console.Write("Введите столбец:");
-            int pos2 = Convert.ToInt32(Console.ReadLine()) - 1;
-            int n = 3; // размер массива
-            int m = 4; // размер массива
-            Random random = new Random();
-            int[,] arr = new int[n, m];
-            Console.WriteLine("Исходный массив:");
-            for (int i = 0; i < arr.GetLength(0); i++)
-            {
-                for (int j = 0; j < arr.GetLength(1); j++)
-                {
-                    arr[i, j] = random.Next(10, 99);
-                    Console.Write("{0} ", arr[i, j]);
-                }
-                Console.WriteLine();
-            }
-            if (pos1 < 0 | pos1 > arr.GetLength(0) - 1 | pos2 < 0 | pos2 > arr.GetLength(1) - 1)
-            {
-                Console.WriteLine("Элемент не существует");
-            }
-            else
-            {
-                Console.WriteLine("Значение элемента массива = {0}", arr[pos1, pos2]);
-            }
-            Console.ReadLine();
- 
-        
+void ReturnPosition(int[,] arr)
+{
+    if (pos1 <= 0
+        & pos1 >= arr.GetLength(0) - 1
+        & pos2 <= 0
+        & pos2 >= arr.GetLength(1) - 1)
+    {
+        Console.WriteLine("Такого числа в массиве нет");
+    }
+    else
+    {
+        Console.WriteLine("Значение элемента массива = {0}", arr[pos1, pos2]);
+    }
+    Console.ReadLine();
+}
+
+
+CreateMatrix(n, m);
+ReturnPosition(arr);
+
